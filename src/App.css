@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+  }
+  
+  .active
+  {
+    color:red
+  }
+  .nav ul
+  {
+    /* background-color: green; */
+    width: auto;
+    list-style: none;
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }

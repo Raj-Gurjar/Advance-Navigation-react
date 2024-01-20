@@ -6,7 +6,7 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Parent from './components/Parent';
 import Login from './components/Login';
-
+import PrivateRoute from './components/PrivateRoute';
 import DashBoard from './components/DashBoard';
 import SignUp from './components/SignUp';
 import { useState } from 'react';
@@ -30,7 +30,13 @@ function App() {
                     <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} />} />
                     <Route path='/signup' element={<SignUp setIsLoggedIn={setIsLoggedIn} />} />
 
-                    <Route path='/dashboard' element={<DashBoard />} />
+
+                    <Route path='/dashboard' element={
+                        <PrivateRoute isLoggedIn={isLoggedIn}>
+                            <DashBoard />
+                        </PrivateRoute>
+                    } />
+                    {/* //! Anyone can access dashboard by url /dashboard without login so to handle it we write use Private Routing */}
 
                     <Route path='*' element={<div>404 Site Not found</div>} />
                     {/* //! This is the wildcard route that matches any path that hasn't been matched by the previous routes. */}
